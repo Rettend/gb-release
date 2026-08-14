@@ -1,6 +1,6 @@
 {
   "name": "@rettend/release",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "packageManager": "bun@1.3.14",
   "description": "A safe interactive release CLI for Git and GitButler workspaces",
   "type": "module",
