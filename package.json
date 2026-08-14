@@ -1,6 +1,6 @@
 {
   "name": "@rttnd/release",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "bun@1.3.14",
   "description": "A safe interactive release CLI for Git and GitButler workspaces",
   "type": "module",
