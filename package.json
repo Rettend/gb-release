@@ -1,0 +1,53 @@
+{
+  "name": "@rettend/release",
+  "version": "0.0.0",
+  "description": "A safe interactive release CLI for Git and GitButler workspaces",
+  "type": "module",
+  "bin": {
+    "gb-release": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "bun build ./src/cli.ts ./src/index.ts --outdir ./dist --target node --format esm --packages external --sourcemap=external && bunx tsc --emitDeclarationOnly",
+    "check": "tsc --noEmit",
+    "release": "bun run src/cli.ts",
+    "test": "bun test",
+    "prepack": "bun run build",
+    "prepublishOnly": "bun run check && bun test"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.11.0",
+    "jiti": "^2.5.1",
+    "jsonc-parser": "^3.3.1",
+    "semver": "^7.7.2"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.20",
+    "@types/node": "^24.2.1",
+    "@types/semver": "^7.7.0",
+    "typescript": "^5.9.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "release",
+    "gitbutler",
+    "version",
+    "publish"
+  ],
+  "license": "MIT"
+}
