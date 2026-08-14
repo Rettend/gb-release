@@ -91,11 +91,11 @@ export async function restoreGitButler(
   expectSuccess(await runner.run(
     "but",
     ["setup"],
-    { ...options(root, signal), stdio: "inherit" },
+    options(root, signal),
   ), "Release finished, but `but setup` could not restore GitButler workspace mode.");
   expectSuccess(await runner.run(
     "but",
     ["pull"],
-    { ...options(root, signal), stdio: "inherit" },
+    options(root, signal),
   ), "GitButler was restored, but `but pull` could not reconcile the workspace.");
 }

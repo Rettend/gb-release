@@ -7,7 +7,7 @@ creates release commits or tags.
 ## Install
 
 ```sh
-bun add --dev @rettend/release
+bun add --dev @rttnd/release
 ```
 
 ```json
@@ -23,7 +23,7 @@ bun add --dev @rettend/release
 Create `release.config.ts` at the repository root:
 
 ```ts
-import { defineConfig } from "@rettend/release";
+import { defineConfig } from "@rttnd/release";
 
 export default defineConfig({
   versionFiles: ["package.json", "jsr.json"],

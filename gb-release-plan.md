@@ -7,12 +7,12 @@
 The project and executable are named `gb-release`. Everything else uses the shorter `release` name:
 
 - Repository: `gb-release`
-- Package: `@rettend/release`
+- Package: `@rttnd/release`
 - Executable: `gb-release`
 - Configuration: `release.config.ts`
 - Package export: `defineConfig`
 
-Projects install `@rettend/release` and reduce their release script to:
+Projects install `@rttnd/release` and reduce their release script to:
 
 ```json
 {
@@ -20,7 +20,7 @@ Projects install `@rettend/release` and reduce their release script to:
     "release": "gb-release"
   },
   "devDependencies": {
-    "@rettend/release": "^0.1.0"
+    "@rttnd/release": "^0.1.0"
   }
 }
 ```
@@ -261,7 +261,7 @@ The original release command's exit status must be preserved even if workspace r
 The package exports `defineConfig`:
 
 ```ts
-import { defineConfig } from "@rettend/release";
+import { defineConfig } from "@rttnd/release";
 
 export default defineConfig({
   target: {
@@ -314,7 +314,7 @@ Initial equivalent of Gau's existing workflow:
 
 ```ts
 // release.config.ts
-import { defineConfig } from "@rettend/release";
+import { defineConfig } from "@rttnd/release";
 
 export default defineConfig({
   versionFiles: [
@@ -344,7 +344,7 @@ Initial equivalent of the existing workflow:
 
 ```ts
 // release.config.ts
-import { defineConfig } from "@rettend/release";
+import { defineConfig } from "@rttnd/release";
 
 export default defineConfig({
   versionFiles: [
@@ -478,7 +478,7 @@ Command execution and prompts should be dependency-injected so most failure case
 
 ### Milestone 1: Local MVP
 
-- Create the `gb-release` repository and `@rettend/release` package.
+- Create the `gb-release` repository and `@rttnd/release` package.
 - Load `release.config.ts`.
 - Detect normal Git and GitButler workspace modes.
 - Implement teardown, target update, setup, and pull.
