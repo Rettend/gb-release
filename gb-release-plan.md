@@ -221,9 +221,7 @@ Branch protection or a non-fast-forward update must fail before publishing.
 Run configured publish commands in order. Initial supported forms can be ordinary commands with inherited terminal input and output:
 
 ```ts
-publish: [
-  "bun publish --cwd packages/gau",
-]
+publish: ['bun publish --cwd packages/gau']
 ```
 
 Structured publishers can be added when they provide concrete value:
@@ -231,12 +229,12 @@ Structured publishers can be added when they provide concrete value:
 ```ts
 publish: [
   {
-    registry: "npm",
-    command: "bun publish --cwd packages/gau",
+    registry: 'npm',
+    command: 'bun publish --cwd packages/gau',
   },
   {
-    registry: "jsr",
-    command: "bunx jsr publish --cwd packages/gau",
+    registry: 'jsr',
+    command: 'bunx jsr publish --cwd packages/gau',
   },
 ]
 ```
@@ -261,17 +259,17 @@ The original release command's exit status must be preserved even if workspace r
 The package exports `defineConfig`:
 
 ```ts
-import { defineConfig } from "@rttnd/release";
+import { defineConfig } from '@rttnd/release'
 
 export default defineConfig({
   target: {
-    remote: "origin",
-    branch: "main",
+    remote: 'origin',
+    branch: 'main',
   },
-  versionFiles: ["package.json"],
+  versionFiles: ['package.json'],
   prepare: [],
   publish: [],
-});
+})
 ```
 
 Proposed initial shape:
@@ -279,14 +277,14 @@ Proposed initial shape:
 ```ts
 export interface ReleaseConfig {
   target?: {
-    remote?: string;
-    branch?: string;
-  };
-  versionFiles?: string[];
-  prepare?: string | string[];
-  publish?: string | string[];
-  commitMessage?: string;
-  tagName?: string;
+    remote?: string
+    branch?: string
+  }
+  versionFiles?: string[]
+  prepare?: string | string[]
+  publish?: string | string[]
+  commitMessage?: string
+  tagName?: string
 }
 ```
 
@@ -314,16 +312,13 @@ Initial equivalent of Gau's existing workflow:
 
 ```ts
 // release.config.ts
-import { defineConfig } from "@rttnd/release";
+import { defineConfig } from '@rttnd/release'
 
 export default defineConfig({
-  versionFiles: [
-    "packages/gau/package.json",
-    "packages/gau/jsr.json",
-  ],
-  prepare: "bun run build",
-  publish: "bun publish --cwd packages/gau",
-});
+  versionFiles: ['packages/gau/package.json', 'packages/gau/jsr.json'],
+  prepare: 'bun run build',
+  publish: 'bun publish --cwd packages/gau',
+})
 ```
 
 Root package script:
@@ -344,14 +339,12 @@ Initial equivalent of the existing workflow:
 
 ```ts
 // release.config.ts
-import { defineConfig } from "@rttnd/release";
+import { defineConfig } from '@rttnd/release'
 
 export default defineConfig({
-  versionFiles: [
-    "packages/starlight-plugin-icons/package.json",
-  ],
-  publish: "npm publish --workspace starlight-plugin-icons",
-});
+  versionFiles: ['packages/starlight-plugin-icons/package.json'],
+  publish: 'npm publish --workspace starlight-plugin-icons',
+})
 ```
 
 Root package script:

@@ -1,0 +1,79 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "node", "vitest"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "env": {
+    "builtin": true,
+    "node": true
+  },
+  "options": {
+    "reportUnusedDisableDirectives": "error"
+  },
+  "rules": {
+    "curly": ["warn", "multi-or-nest", "consistent"],
+    "eqeqeq": ["error", "smart"],
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+    "import/first": "error",
+    "import/no-duplicates": "error",
+    "no-alert": "error",
+    "no-await-in-loop": "off",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-debugger": "error",
+    "no-eval": "error",
+    "no-new-func": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "none",
+        "ignoreRestSiblings": true,
+        "vars": "all",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "no-var": "error",
+    "object-shorthand": "error",
+    "prefer-const": ["error", { "destructuring": "all", "ignoreReadBeforeAssign": true }],
+    "prefer-template": "error",
+    "typescript/consistent-type-definitions": ["error", "interface"],
+    "typescript/consistent-type-imports": [
+      "error",
+      {
+        "disallowTypeAnnotations": false,
+        "fixStyle": "separate-type-imports",
+        "prefer": "type-imports"
+      }
+    ],
+    "typescript/no-explicit-any": "off",
+    "typescript/no-require-imports": "error",
+    "typescript/no-wrapper-object-types": "error",
+    "unicorn/no-array-sort": "off",
+    "unicorn/prefer-node-protocol": "error"
+  },
+  "overrides": [
+    {
+      "files": ["src/cli.ts"],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["src/release.ts"],
+      "rules": {
+        "no-unsafe-finally": "off"
+      }
+    },
+    {
+      "files": ["test/**/*.ts", "**/*.test.ts", "**/*.spec.ts"],
+      "env": {
+        "vitest": true
+      }
+    }
+  ],
+  "ignorePatterns": ["dist/**", "coverage/**"]
+}

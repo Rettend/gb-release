@@ -23,13 +23,13 @@ bun add --dev @rttnd/release
 Create `release.config.ts` at the repository root:
 
 ```ts
-import { defineConfig } from "@rttnd/release";
+import { defineConfig } from '@rttnd/release'
 
 export default defineConfig({
-  versionFiles: ["package.json", "jsr.json"],
-  prepare: "bun run build",
-  publish: "bun publish",
-});
+  versionFiles: ['package.json', 'jsr.json'],
+  prepare: 'bun run build',
+  publish: 'bun publish',
+})
 ```
 
 The default target is `origin/main`. Run the release after Landing the intended
@@ -44,11 +44,11 @@ when a package ships build output:
 
 ```ts
 export default defineConfig({
-  versionFiles: ["package.json"],
-  prepare: "bun run build",
-  commitFiles: ["dist"],
-  publish: "bun publish",
-});
+  versionFiles: ['package.json'],
+  prepare: 'bun run build',
+  commitFiles: ['dist'],
+  publish: 'bun publish',
+})
 ```
 
 ## Options
